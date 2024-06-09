@@ -9,14 +9,11 @@ const Navbar = () => {
   return (
     <nav>
       <ul style={{ textAlign: 'center', marginTop: '10px' }}>
-        {isAuthenticated() ? (
+        {isAuthenticated() && (
           <>
-          <li><Link to="/create">Anket Oluştur</Link></li>
-          <li><Link to="/surveys">Anketler</Link></li>
-          <li onClick={logout}><Link to="/">Çıkış Yap</Link></li>
-        </>
-        ) : (
-          <>
+            <li><Link to="/create">Anket Oluştur</Link></li>
+            <li><Link to="/surveys">Anketler</Link></li>
+            <li onClick={logout}><Link to="/">Çıkış Yap</Link></li>
           </>
         )}
       </ul>
@@ -25,3 +22,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

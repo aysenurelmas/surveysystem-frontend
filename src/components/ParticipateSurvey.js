@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axiosInstance from '../axiosInstance';
+import '../styles/ParticipateSurvey.css';
 
 const ParticipateSurvey = () => {
     const { surveyId } = useParams();
     const [survey, setSurvey] = useState(null);
     const [answer, setAnswer] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchSurvey = async () => {
@@ -29,6 +31,7 @@ const ParticipateSurvey = () => {
             answer: answer
         });
         setAnswer('');
+        navigate('/surveys');
         } catch (error) {
           if (error.response && error.response.data && error.response.data.detail) {
             setError(error.response.data.detail);
@@ -41,7 +44,7 @@ const ParticipateSurvey = () => {
     if (!survey) return <div>Yükleniyor...</div>;
 
     return (
-      <div className="container mt-4">
+      <div className="participate-survey-container">
           <h2>{survey.name}</h2>
           <p>{survey.questionText}</p>
           {error && <div className="alert alert-danger">{error}</div>}

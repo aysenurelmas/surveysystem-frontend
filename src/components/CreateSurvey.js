@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../axiosInstance';
-import '../Styles/CreateSurvey.css';
+import '../styles/CreateSurvey.css';
 
 const CreateSurvey = () => {
   const [name, setName] = useState('');

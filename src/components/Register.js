@@ -1,6 +1,7 @@
-// src/components/Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/Register.css';
+import { Link } from 'react-router-dom';
 
 function Register() {
   const [firstName, setFirstName] = useState('');
@@ -20,10 +21,10 @@ function Register() {
   };
 
   return (
-    <div className="container">
+    <div className="register-container">
       <h1>Kayıt Ol</h1>
       <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Ad:</label>
+        <label htmlFor="firstName">Ad:</label>
         <input
           type="text"
           id="firstName"
@@ -31,7 +32,7 @@ function Register() {
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
-        <label htmlFor="email">Soyad:</label>
+        <label htmlFor="lastName">Soyad:</label>
         <input
           type="text"
           id="lastName"
@@ -47,7 +48,6 @@ function Register() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
         <label htmlFor="password">Şifre:</label>
         <input
           type="password"
@@ -56,8 +56,10 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-
         <button type="submit">Kayıt Ol</button>
+        <Link to="/login" className="btn btn-secondary">
+              Giriş Yap
+        </Link>
       </form>
     </div>
   );

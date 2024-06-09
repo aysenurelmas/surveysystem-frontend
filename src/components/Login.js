@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axiosInstance from '../axiosInstance';
-import '../Styles/Login.css'; // Ekstra stil eklemek için kullanılacak
+import '../styles/Login.css'; // Ekstra stil eklemek için kullanılacak
 
 function LoginTest() {
   const [email, setEmail] = useState('');

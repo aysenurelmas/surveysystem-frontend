@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../axiosInstance';
-import '../Styles/SurveyList.css';
+import '../styles/SurveyList.css';
 
 const SurveyList = () => {
   const [surveys, setSurveys] = useState([]);
@@ -27,9 +27,18 @@ const SurveyList = () => {
     navigate(`/participate/${surveyId}`);
   };
 
+  const handleCreateSurveyClick = () => {
+    navigate('/create');
+  };
+
   return (
     <div className="container mt-5 container-custom">
-      <h2 className="header-custom">Anketler</h2>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2 className="header-custom">Anketler</h2>
+        <button className="btn btn-primary btn-lg" onClick={handleCreateSurveyClick}>
+          Yeni Anket Oluştur
+        </button>
+      </div>
       <ul className="list-group">
         {surveys.map(survey => (
           <li
@@ -56,4 +65,3 @@ const SurveyList = () => {
 };
 
 export default SurveyList;
-
